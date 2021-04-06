@@ -1,5 +1,6 @@
 const FILES_TO_CACHE = [
     '/',
+    '/db.js',
     '/index.html',
     '/styles.css',
     '/dist/bundle.js',
@@ -59,4 +60,3 @@ const FILES_TO_CACHE = [
       );
     }
   });
-  

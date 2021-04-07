@@ -7,7 +7,8 @@ const FILES_TO_CACHE = [
     'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
     'https://cdn.jsdelivr.net/npm/chart.js@2.8.0',
     '/icons',
-    '/manifest.webmanifest'
+    '/manifest.webmanifest',
+    '/index.js'
   ];
   
 const CACHE_NAME = 'static-cache-v2';
@@ -63,9 +64,9 @@ self.addEventListener('fetch', (event) => {
 
   event.respondWith(
     caches.open(CACHE_NAME).then(cache =>{
-      return cache.match(event.request.then(response => {
+      return cache.match(event.request).then(response => {
         return response || fetch(event.request)
-      }))
+      })
     })
   )
 })
